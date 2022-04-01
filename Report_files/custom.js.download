@@ -1,0 +1,235 @@
+﻿$(document).ready(function(){
+    menuToggle();
+});
+$('#btnBack').on('click', function () {
+    parent.history.back();
+    return false;
+})
+
+// Temporary btn to store current button
+var btn_ = (function () {
+    var btn;
+
+    return {
+        setBtn: function (bt) {
+            btn = bt;
+        },
+        getBtn: function () {
+            return btn;
+        }
+    }
+})();
+
+
+/* ------  Check for empty table --------------*/
+function CheckEmptyTable() {
+    var allTbody = $("tbody");
+
+    $.each(allTbody, function (i, tbody) {
+
+        if ($(tbody).children().length == 0) {
+            var thCount = $(tbody).siblings().find('th').length;
+            $(tbody).html('<tr><td colspan="' + thCount + '" style="text-align:center">No record.</td></tr>');
+        }
+    });
+}
+/*-----------end------------------*/
+
+/* ------  Show or hide loading--------------*/
+
+function ShowLoading(bool,msg = null) {
+    if (bool){
+        $('.left_col').addClass("blurContainer");
+        $('.top_nav').addClass("blurContainer");
+        $('.right_col').addClass("blurContainer");
+        $('footer').addClass("blurContainer");
+
+        $('#loading').removeClass("hide");
+        $('#loadingMessage').html(msg);
+
+    }
+    else{
+        
+        $('.left_col').removeClass("blurContainer");
+        $('.top_nav').removeClass("blurContainer");
+        $('.right_col').removeClass("blurContainer");
+        $('footer').removeClass("blurContainer");
+        $('#loading').addClass("hide");
+
+    }
+
+}
+
+/*-----------end------------------*/
+
+
+
+/* -------Show OK dialog ---------*/
+function showOkDialog(Dialogtype, title, msg) {
+    $('#okDialogBoxTitle').html(title);
+    $('#okDialogBoxMsg').html(msg);
+    $('#okDialogBoxIcon').removeClass("hidden");
+    if (Dialogtype == "info") {
+        $('#okDialogBoxicon').addClass("glyphicon glyphicon-info-sign");
+        
+    }
+    else if(Dialogtype =="warn"){
+        $('#okDialogBoxIcon').addClass("glyphicon glyphicon-warning-sign");
+
+    }
+    else{
+        $('#okDialogBoxIcon').addClass("hidden");
+    }
+
+    $('#okDialogBox').modal({show:true});
+}
+
+//  Yes no  Dialog, return true or false
+async function showYesNoDialog(Dialogtype, title, msg) {
+    return new Promise(resolve =>{
+        $('#yesNoDialogBoxTitle').html(title);
+    $('#yesNoDialogBoxMsg').html(msg);
+    $('#yesBtnAction').val(yesBtnAction);
+    $('#yesNoDialogBoxIcon').removeClass("hidden");
+    //if (Dialogtype == "info") {
+    //    $('#yesNoDialogBoxIcon').addClass("glyphicon glyphicon-info-sign");
+
+    //}
+    //else if (Dialogtype == "warn") {
+    //    $('#yesNoDialogBoxIcon').addClass("glyphicon glyphicon-warning-sign");
+
+    //}
+    //else {
+    //    $('#yesNoDialogBoxIcon').addClass("hidden");
+    //}
+       
+
+    setTimeout(function () {
+        $('#yesNoDialogBox').modal({ show: true });
+    }, 500);
+
+    $('#yesNoDialogYesBtn').on('click',function(){
+        $('#yesNoDialogYesBtn').off('click');
+        $('#yesNoDialogBox').modal('hide');
+        resolve(true);
+    });
+
+    $('#yesNoDialogNoBtn').on('click',function(){
+        $('#yesNoDialogNoBtn').off('click');
+        $('#yesNoDialogBox').modal('hide');
+        resolve(false);
+    });
+
+});
+
+    
+}
+
+// Input dialog, return input else false
+async function showInputDialogBox(title, okBtnName) {
+    return new Promise(resolve =>{
+        $('#inputDialogBoxMsg').val('');
+    $('#inputDialogBoxTitle').html(title);
+    $('#inputDialogOKBtn').html(okBtnName);
+            
+
+    setTimeout(function () {
+        $('#inputDialogBoc').modal('show');
+    }, 300);
+
+    $('#inputDialogOKBtn').on('click',function(){
+        if ($('#inputDialogBoxMsg').val() == "") {               
+            return;
+        }
+        $('#inputDialogOKBtn').off('click');
+        $('#inputDialogBox').modal('hide');
+        resolve($('#inputDialogBoxMsg').val());
+    });
+
+    $('#inputDialogBoxCancelBtn').on('click',function(){
+        $('#inputDialogBoxCancelBtn').off('click');
+        $('#inputDialogBox').modal('hide');
+        resolve(false);
+    });
+
+});
+
+    
+}
+
+/*-----------end------------------*/
+
+function toggleFullScreen(elem) {
+    // ## The below if statement seems to work better ## if ((document.fullScreenElement && document.fullScreenElement !== null) || (document.msfullscreenElement && document.msfullscreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
+    if ((document.fullScreenElement !== undefined && document.fullScreenElement === null) || (document.msFullscreenElement !== undefined && document.msFullscreenElement === null) || (document.mozFullScreen !== undefined && !document.mozFullScreen) || (document.webkitIsFullScreen !== undefined && !document.webkitIsFullScreen)) {
+        if (elem.requestFullScreen) {
+            elem.requestFullScreen();
+        } else if (elem.mozRequestFullScreen) {
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullScreen) {
+            elem.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+        $(elem).css("overflow", "auto").css("padding-bottom", "0px");
+    } else {
+        if (document.cancelFullScreen) {
+            document.cancelFullScreen();
+        } else if (document.mozCancelFullScreen) {
+            document.mozCancelFullScreen();
+        } else if (document.webkitCancelFullScreen) {
+            document.webkitCancelFullScreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+    }
+}
+
+
+$('#Lock').on('click', function () {
+    if ( $("body").css("pointer-events")== "auto") {
+        $("body").css("pointer-events", "none");
+        $('#Lock').css("pointer-events", "auto");
+        $('.modal-footer .btn').css("pointer-events", "auto");
+        $("body").unbind('keydown');
+        $('#Lock').attr("data-original-title","UnLock");
+        $('#Lock span').removeClass("glyphicon-eye-close").addClass("glyphicon-eye-open");
+        // alert("Locked");  
+        showOkDialog("","Info","Controls Locked");
+    } else {               
+        $("body").css("pointer-events", "auto");
+        $('#Lock').attr("data-original-title","Lock");
+        $('#Lock span').removeClass("glyphicon-eye-open").addClass("glyphicon-eye-close");
+
+        showOkDialog("","Info","Controls Restored");
+
+       // alert("UnLocked");
+    }
+          
+});
+
+//toggle menu begin
+
+function menuToggle(){
+    if ($('body').hasClass('nav-md')) {
+        $("#sidebar-menu").find('li.active ul').hide();
+        $("#sidebar-menu").find('li.active').addClass('active-sm').removeClass('active');
+    } else {
+        $("#sidebar-menu").find('li.active-sm ul').show();
+        $("#sidebar-menu").find('li.active-sm').addClass('active').removeClass('active-sm');
+    }
+    $('body').toggleClass('nav-md nav-sm');
+    setHeight();
+}
+
+function setHeight(){
+    $('.right_col').css('min-height', $(window).height());
+    var bodyHeight = $('body').outerHeight();
+    var footerHeight = $('body').hasClass('footer_fixed') ? -10 : $('footer').height();
+    var leftColHeight = $('.left_col').eq(1).height() + $('.sidebar-footer').height();
+    var contentHeight = bodyHeight < leftColHeight ? leftColHeight : bodyHeight;
+    contentHeight -= $('.nav_menu').height() + footerHeight;
+    $('.right_col').css('min-height', contentHeight);
+}
+//toggle menu end

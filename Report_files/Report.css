@@ -1,0 +1,59 @@
+﻿
+.patient-infos tr td:first-child {
+    font-weight: bold;
+    color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.patient-infos > table:nth-child(1), .patient-infos > table:nth-child(2) {
+    margin-right: 3cm;
+    color: black;
+}
+
+.patient-infos {
+    /*border-top: solid 1px;*/
+    border-bottom: dimgray solid 2px;
+    color: black;
+}
+
+    .patient-infos table {
+        font-size: 14px;
+        color: black;
+    }
+
+.report-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: 32px;
+    /*border-top: solid 1px;*/
+    padding-top: 3px;
+    padding-bottom: 3px;
+    color: black;
+}
+
+.reportHeader {
+    width:100%;
+}
+
+.reportLogo {
+    max-width:80%;
+}
+
+.reportTitle {
+
+
+    text-align: center;
+}
+
+.companyTitle {
+    text-align: center;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.reportOfPatient {
+    text-align: center;
+    font-size: 25px;
+    padding-bottom: 3px;
+}

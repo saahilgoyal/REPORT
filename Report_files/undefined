@@ -1,0 +1,161 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Error</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="icon" href="/crystal/Carelab/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/crystal/Carelab/favicon.ico" type="image/x-icon" />
+    <!-- Meta, title, CSS, favicons, etc. -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/crystal/Carelab/bundles/css?v=RZEp0Vt9kKwdftWHqOMfQSHZ4SSDv-pzwJZaX8MRZm41" rel="stylesheet"/>
+
+    <script src="/crystal/Carelab/bundles/modernizr?v=inCVuEFe6J4Q07A0AcRsbJic_UE5MwpRMNGcOtk94TE1"></script>
+
+
+
+    <style>
+        body {
+            /*padding-top: 0px;
+            padding-bottom: 20px;
+            margin: 0px 15px;*/
+            /*padding:5px 5px;*/
+        }
+
+        .nav {
+            padding-left: 15px;
+            margin-bottom: 0;
+            list-style: none;
+            height: 45px;
+        }
+    </style>
+
+
+
+</head>
+<body>
+    <div class="nav blankLayoutNav">
+     
+        
+    </div>
+    <div class="content-center">
+        
+
+
+
+
+
+        <div  style="margin-top:80px">
+            <div class="col-md-12 center-block " style="text-align:center">
+                <div class="">
+                    <h1>
+                        Oops!
+                    </h1>
+                    <h2>
+                        404 Not Found
+                    </h2>
+                    <div class="error-details">
+                        Sorry, an error has occured, Requested page not found!
+                    </div>
+                    <div class="error-actions">
+                       <button id="backBtn" class="btn btn-primary btn-lg">
+                            <span class=""></span>
+                            Take Me Back
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+<div class="modal fade " id="okDialogBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:400px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="okDialogBoxTitle">Title </h4>
+            </div>
+            <div class="modal-body">
+                <span class="hidden" id="okDialogBoxicon" style="float:left; margin:12px 12px 20px 0;"></span>
+                <p id="okDialogBoxMsg"> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="yesNoDialogBox" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:400px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="yesNoDialogBoxTitle">Title </h4>
+            </div>
+            <div class="modal-body">
+                <span class="hidden" id="yesNoDialogBoxicon" style="float:left; margin:12px 12px 20px 0;"></span>
+                <p id="yesNoDialogBoxMsg"> </p>
+                <input type="hidden" id="yesBtnAction" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="yesNoDialogYesBtn" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-primary" id="yesNoDialogNoBtn" data-dismiss="modal">No</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="inputDialogBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:650px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="inputDialogBoxTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="inputDialogBoxMsg" style="width:100%;height:100%;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="inputDialogBoxCancelBtn">Cancel</button>
+                <button type="button" class="btn btn-primary" id="inputDialogBoxOKBtn">Ok</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <script src="/crystal/Carelab/bundles/jquery?v=s0dQgg6thoIjI-lrek2Cov02FflFYG0rRspPFxhNTXk1"></script>
+
+    <script src="/crystal/Carelab/bundles/bootstrap?v=-ktyuuYVm8reiCqek-REkH9kFQQZ53F1Ay-TXz9RIew1"></script>
+
+    <script src="/crystal/Carelab/bundles/Theme?v=AAkkdZ4_nsoWe-H5E7hGLIdTjtoCWgRIIIOXLfnV1Vg1"></script>
+
+    <script src="/crystal/Carelab/Content/vendors/jquery/custom.min.js"></script>
+
+    <!-- Custom Scripts-->
+    <script src="/crystal/Carelab/Content/Scripts/custom.js"></script>
+    
+    <script>
+
+        $('#backBtn').on('click', function (e) {
+            parent.history.back();
+            return false;
+        })
+    </script>
+
+</body>
+
+
+
+</html>
