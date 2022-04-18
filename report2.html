@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://lunivacare.crystaldiagnosticlab.com/crystal/Carelab/Report/Report/PatientReport -->
+<html lang="en" style="" class="js flexbox flexboxlegacy canvas canvastext webgl no-touch geolocation postmessage websqldatabase indexeddb hashchange history draganddrop websockets rgba hsla multiplebgs backgroundsize borderimage borderradius boxshadow textshadow opacity cssanimations csscolumns cssgradients cssreflections csstransforms csstransforms3d csstransitions fontface generatedcontent video audio localstorage sessionstorage webworkers no-applicationcache svg inlinesvg smil svgclippaths"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>Report</title>
+    
+    <link rel="icon" href="https://lunivacare.crystaldiagnosticlab.com/crystal/Carelab/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://lunivacare.crystaldiagnosticlab.com/crystal/Carelab/favicon.ico" type="image/x-icon">
+    <!-- Meta, title, CSS, favicons, etc. -->
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="./Report_files/css" rel="stylesheet">
+
+    <script src="./Report_files/modernizr"></script>
+
+
+
+    <style>
+        body {
+            /*padding-top: 0px;
+            padding-bottom: 20px;
+            margin: 0px 15px;*/
+            /*padding:5px 5px;*/
+        }
+
+        .nav {
+            padding-left: 15px;
+            margin-bottom: 0;
+            list-style: none;
+            height: 45px;
+        }
+    </style>
+
+
+
+<script src="./Report_files/i.js.download"></script><script>window.__TemperAssInit = true;window.__VUserUDID = '0e0e763f174e6ecc67fecaf022a35335125d317c';window.__VUserSUBID = 'STAGE2_PM_P1';</script></head>
+<body class="nav-md nav-sm">
+    <div class="nav blankLayoutNav">
+     
+        
+    </div>
+    <div class="content-center">
+        
+
+
+<!-- #region Variables Declearation-->
+
+
+<style>
+ .content-center {
+    padding: 0px 10px;
+}
+ .reportLogoFooter {
+     width: auto;
+     height: 24px;
+ }
+ div.report-footer {
+     position: relative;
+ }
+ .poweredby {
+     position: absolute;
+     right: 15px;
+     text-align: right;
+     top: 0;
+     color: black;
+ }
+ .sign 
+ {
+     display:none;
+ }
+ .verifier > div
+ {
+     display: table;
+ }
+ /*.companyTitle {
+      display: none;
+  }*/
+
+
+    .reportOfPatient {
+        font-size: 14px !important;
+    }
+    .companyTitle {
+        font-size: 26px;
+        font-weight: bold;
+    }
+    .fontSmall 
+    {
+        font-size: 8px;
+    }
+    .left 
+    {
+        float: left;
+        text-align: left;
+    }
+    .right {
+        float: right;
+        text-align: right;
+    }
+    .patient-infos {
+        border: 2px solid dimgray;
+        padding: 2px;
+    }
+    @media print {
+        div.report-footer {
+            bottom: 0;
+            position: fixed;
+            width: 100%;
+            text-align: center;
+            /*left: 50%;
+    transform: translate(-50%, 0);*/
+        }
+        /*.reportLogo {
+            width: 200px;
+        }*/
+        .group-heading {
+            font-size: 18px !important;
+        }
+
+        .panel-heading {
+            font-size: 24px !important;
+        }
+
+
+
+        .reportLogoFooter {
+            width: auto;
+            height: 20px;
+        }
+
+        .patient-infos > table:nth-child(1), .patient-infos > table:nth-child(2) {
+            margin-right: unset !important;
+        }
+
+        .sign {
+            display: block;
+            /*border-bottom: 1px solid black;*/
+        }
+
+        span.borderTop {
+            border-top: 1px solid dimgray;
+        }
+
+        .reportOfPatient {
+            text-align: center;
+            font-size: 10px !important;
+            padding-bottom: 3px;
+        }
+    }
+ @media only screen and (max-width: 600px) {
+    .table tr th:nth-child(3),
+    .table tr td:nth-child(3),
+    .table tr th:nth-child(5),
+    .table tr td:nth-child(5) {
+        visibility: hidden;
+        left: 0;
+        display: block;
+        position: absolute;
+        z-index: -1;
+    }
+    .child>td>div {
+        display: table;
+    }
+    .child>td>div>div {
+        display: table-row;
+    }
+    .child>td>div>div>span {
+        display: table-cell;
+        padding: 5px;
+        color: #515151;
+    }
+    .child>td>div>div>span:first-child {
+        font-weight: bold;
+    }
+    .patient-infos > table:nth-child(1), .patient-infos > table:nth-child(2) {
+        margin-right: unset !important;
+    }
+ }
+ @media only screen and (max-width: 767px) {
+        .reportHeader {
+            text-align: center;
+        }
+        .poweredby {
+        top: 18px;
+        text-align: center;
+        left: 0%;
+        right: 0px;
+        }
+        #print-button {
+            margin-top: 22px;
+        }
+    }
+
+    @media print {
+        #patientInfo {
+            position: fixed;
+            // bottom: 0;
+        }
+
+        .reportContainer {
+            margin-top: 250px;
+        }
+
+        .verifier {
+            position: fixed;
+            bottom: 0;
+        }
+    }
+ 
+</style>
+<div class="container">
+    <div id="patientInfo">
+        <div class="reportHeader">
+            <div class=" col-md-4 col-sm-8 col-xs-12">
+                <img src="./Report_files/smalllogo.png" class="" style="width:80%;float:left">
+				<div id="showhere" style="width:20%;float:left" class="float:left"><img width="150px" src="./Report_files/undefined"></div>
+				
+            </div>
+            <div class="reportTitle col-md-8 col-sm-8 col-xs-8">
+                <div class="companyTitle"> Crystal Diagnostic Lab</div>
+                <div class="reportOfPatient"> Sinamangal-9, Kathmandu</div>
+            </div>
+            <div class="col-md-3 col-sm-3"> &nbsp;</div>
+        </div>
+
+        
+
+<link href="./Report_files/Report.css" rel="stylesheet">
+
+<div class="container">
+    <div class="patient-infos" style="display:flex; width:100%;">
+        <table style="width:100%">
+            <tbody><tr>
+                <th>Invoice No:</th>
+                <td>12111  </td>
+
+                
+				<th>Sample Id:</th>
+                <td id="sid">12111</td>
+
+              
+            </tr>
+            <tr>
+                <th>Patient Name:</th>
+                <td>Mr. Dron Agarwal</td>
+				<th>Contact No:</th>
+                <td>9849211643</td>
+                
+            </tr>
+
+            <tr>
+                <th>Age/ Gender:</th>
+                <td>10 yrs /Male</td>
+
+                <th>ID  No:</th>
+                <td>4047 4512 8120</td>
+                
+            </tr>
+
+            <tr>
+
+                
+                <th>Address:</th>
+                <td>INDIA</td>
+                
+                <th>Collection Date:</th>
+                <td style="white-space: pre-line">April 18 2022 </td>
+            </tr>
+
+
+            <tr>
+                
+                <th>Sample Type:</th>
+                <td>Naso &amp; Oropharyngeal swab</td>
+
+                <th>Result Date:</th>
+                <td style="white-space: pre-line">April 18 2022 </td>
+
+            </tr>
+
+            
+
+         
+           
+        </tbody></table>
+    </div>
+    
+
+</div>
+
+
+
+    </div>
+    <div class="btnBack">
+       
+    </div>
+    <div>
+ 
+
+    <!-- #region Report -->
+    
+    <div class="reportContainer">
+
+        
+            
+           <!-- #region Initial -->
+            <!-- #endregion -->
+            <!-- #region First of each panel or group , Display Label and Initialization of Table-->
+                    <div class="panel-name" id="MOLECULARLAB-header">
+                       <div>
+                         <div class="panel-heading">  Molecular Lab  </div>
+                         </div>
+                         </div>
+                         <div class="collapse in panel-body table-responsive " id="MOLECULARLAB">
+                        <table class="table">
+                <thead>
+                
+                <tr>
+                
+
+                
+                <th> TEST NAME</th>
+                
+                <th> TEST RESULT</th>
+                <th> UNIT</th>
+                
+                <th> RANGE</th>
+                            
+                <th> METHOD</th>
+               
+               
+
+                           
+        
+                 </tr>
+                 
+                 </thead>
+                 <tbody>
+            <!-- #endregion-->
+            <!-- #region Rest of the body of table-->
+                <!-- Check if the test is subtest or not-->
+                  <tr>
+
+                    
+                      <td id="showSubTest" class="subtest-heading ">SARS-CoV-2 (COVID-19) (Method: Real Time RT-PCR)  </td>
+                     
+                       <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                      <td>&nbsp;</td>
+                  </tr>
+                                   <tr>
+                                       <td class="subtest-name">RdRp </td>
+
+                                       <td> 0</td>
+                                       <td>  </td>
+                                       <td>  </td>
+
+                                       <!-- To remove the border of method cell of same method name-->
+                                           <td>  </td>
+
+                                      
+                                   </tr>
+            <!-- Check end for each group or panel for end tag of table-->
+            <!-- Check for prevention of out of range of index-->
+  <!-- #endregion-->
+           <!-- #region Initial -->
+            <!-- #endregion -->
+            <!-- #region First of each panel or group , Display Label and Initialization of Table-->
+            <!-- #endregion-->
+            <!-- #region Rest of the body of table-->
+                <!-- Check if the test is subtest or not-->
+                                   <tr>
+                                       <td class="subtest-name">N Gene </td>
+
+                                       <td> 0</td>
+                                       <td>  </td>
+                                       <td>  </td>
+
+                                       <!-- To remove the border of method cell of same method name-->
+                                                  <td style="border-top:hidden;"> &nbsp;</td>
+
+                                      
+                                   </tr>
+            <!-- Check end for each group or panel for end tag of table-->
+            <!-- Check for prevention of out of range of index-->
+  <!-- #endregion-->
+           <!-- #region Initial -->
+            <!-- #endregion -->
+            <!-- #region First of each panel or group , Display Label and Initialization of Table-->
+            <!-- #endregion-->
+            <!-- #region Rest of the body of table-->
+                <!-- Check if the test is subtest or not-->
+                                   <tr>
+                                       <td class="subtest-name">E Gene </td>
+
+                                       <td> 0</td>
+                                       <td>  </td>
+                                       <td>  </td>
+
+                                       <!-- To remove the border of method cell of same method name-->
+                                                  <td style="border-top:hidden;"> &nbsp;</td>
+
+                                      
+                                   </tr>
+            <!-- Check end for each group or panel for end tag of table-->
+            <!-- Check for prevention of out of range of index-->
+  <!-- #endregion-->
+           <!-- #region Initial -->
+            <!-- #endregion -->
+            <!-- #region First of each panel or group , Display Label and Initialization of Table-->
+            <!-- #endregion-->
+            <!-- #region Rest of the body of table-->
+                <!-- Check if the test is subtest or not-->
+                                   <tr>
+                                       <td class="subtest-name">Kit used </td>
+
+                                       <td> 1 COPY   COVID -19 qPCR 4plex Kit</td>
+                                       <td>  </td>
+                                       <td>  </td>
+
+                                       <!-- To remove the border of method cell of same method name-->
+                                                  <td style="border-top:hidden;"> &nbsp;</td>
+
+                                      
+                                   </tr>
+                                           <tr>
+                                               <td style="font-style: italic">NEGATIVE </td>
+                                               <td>&nbsp;</td>
+                                               <td>&nbsp;</td>
+                                               <td>&nbsp;</td>
+                                               <td>&nbsp;</td>
+                                           </tr>
+            <!-- Check end for each group or panel for end tag of table-->
+            <!-- Check for prevention of out of range of index-->
+         <!-- End of the record-->
+        </tbody>
+        </table>
+        </div>
+  <!-- #endregion-->
+
+    
+    </div>
+    
+    
+    
+     <!-- #endregion -->
+    
+   
+
+    <!-- #region Footer-->
+
+    <br>
+    <br>
+    <br>
+ 
+    <!-- Doctor details-->
+    
+
+                                                     <div class="col-md-12 col-sm-12 col-xs-12">
+                                                         <div class="col-md-6 col-sm-6 col-xs-6 verifier">
+                                                             <div><img width="150px" class="sign" alt="" src="data:image/png;base64,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"></div>
+                                                             <div><span class="borderTop"> Bishnu Gyawali</span> </div>
+                                                             <div><span> Microbiologist  ( MSC. MLT)</span></div>
+                                                             <div><span> 144 Med. Microbiology</span></div>
+                                                         </div>
+                                                             <div class="col-md-6 col-sm-6 col-xs-6 verifier right">
+                                                                 <div>
+                                                                     <img width="150px" class="sign" alt="" src="data:image/png;base64,">
+                                                                 </div>
+                                                                 <div><span class="borderTop"> </span> </div>
+                                                                 <div><span> </span></div>
+                                                                 <div><span> </span></div>
+                                                             </div>
+                                                     </div>
+
+<div>
+				<button type="button" class="btn btn-primary printDynamicReport" rid="72023" reporttype="11" isculture="0" onclick="location.href=&#39;/crystal/Carelab/Report/ExportReport/DynamicReport?q=c90tE8a8pV34SNfKeMPw6oQc%2FwQ2TmrBa%2FdI5JlwRXIdsIMCViwkwZgevvq7I180OAvChFgvyqA2eHboL88nCOxl0LK%2Fi3Wf&amp;pH=1&#39;">
+					Print/View SARS-CoV-2 (COVID-19) (Method: Real Time RT-PCR) 
+				</button>
+</div>
+
+<div class="col-md-12 col-sm-12 col-xs-12 text-center report-footer">
+    This is an electronically generated report- copy.
+    <span class="poweredby">Powered By - <img src="./Report_files/smalllogo_original.png" class="reportLogoFooter"></span>
+</div>
+                                                     <!-- #endregion -->
+
+
+
+
+    </div>
+
+
+
+
+<div class="modal fade " id="okDialogBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document" style="width:400px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="okDialogBoxTitle">Title </h4>
+            </div>
+            <div class="modal-body">
+                <span class="hidden" id="okDialogBoxicon" style="float:left; margin:12px 12px 20px 0;"></span>
+                <p id="okDialogBoxMsg"> </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">OK</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="yesNoDialogBox" tabindex="-1" role="dialog" data-keyboard="false" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:400px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="yesNoDialogBoxTitle">Title </h4>
+            </div>
+            <div class="modal-body">
+                <span class="hidden" id="yesNoDialogBoxicon" style="float:left; margin:12px 12px 20px 0;"></span>
+                <p id="yesNoDialogBoxMsg"> </p>
+                <input type="hidden" id="yesBtnAction">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="yesNoDialogYesBtn" data-dismiss="modal">Yes</button>
+                <button type="button" class="btn btn-primary" id="yesNoDialogNoBtn" data-dismiss="modal">No</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade " id="inputDialogBox" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+    <div class="modal-dialog" role="document" style="width:650px;">
+        <div class=" modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="inputDialogBoxTitle"></h4>
+            </div>
+            <div class="modal-body">
+                <textarea id="inputDialogBoxMsg" style="width:100%;height:100%;"></textarea>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="inputDialogBoxCancelBtn">Cancel</button>
+                <button type="button" class="btn btn-primary" id="inputDialogBoxOKBtn">Ok</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+    <script src="./Report_files/jquery"></script>
+
+    <script src="./Report_files/bootstrap"></script>
+
+    <script src="./Report_files/Theme"></script>
+
+    <script src="./Report_files/custom.min.js.download"></script>
+
+    <!-- Custom Scripts-->
+    <script src="./Report_files/custom.js.download"></script>
+    
+    <script>
+    $('#btnBack').on('click', function () {
+        parent.history.back();
+        return false;
+    });
+    
+    $('.table tr td:first-child').on('click', function () {
+        if (window.outerWidth < 601) {
+            let clickedRow = this.parentElement;
+
+            let unitCol = clickedRow.cells[2];
+            let methodCol = clickedRow.cells[4];
+
+            let nextRow = clickedRow.nextElementSibling;
+            
+            if (nextRow == null || !nextRow.classList.contains('child')) {
+                let childRow = $('<tr class="child"><td colspan=5><div></div></td></tr>');
+                
+                let oriUnitCol = unitCol.innerHTML;
+                let unitColContainer = $('<div><span>UNIT</span></div>').append($('<span></span>').append(oriUnitCol));
+                childRow.find('td>div').append(unitColContainer);
+                
+                let oriMetCol = methodCol.innerHTML;
+                let metColContainer = $('<div><span>METHOD</span></div>').append($('<span></span>').append(oriMetCol));
+                childRow.find('td>div').append(metColContainer);
+
+                $(clickedRow).after(childRow);
+            } else {
+                nextRow.remove();
+            }
+        }
+    });
+</script>
+<script>
+	$(document).ready(function(){
+	//rj
+	var sid=$("#sid").html();
+	$.ajax({
+     url: "https://crystal.lunivacare.com/crystal/uploadimage/PatientImage/?patientId="+sid,
+     dataType: 'text',
+     success: function(data) {
+       
+          //var elements = $("<div>").html(data)[0].getElementsByClassName("img");
+          $(data).find("img").each( function(){
+ if($(this).attr("alt") == "Alternate Text"){
+ var src=$(this).attr("src");
+   //alert('ayo ayo'); 
+   $("#showhere").html("<img width='150px' src='"+src+"'/>");
+    }
+      
+
+    } )
+        //   alert(elements);
+     }
+});
+	//end
+	});
+	</script>
+
+    
+
+
+
+
+</div></div><script src="./Report_files/inject-web.js.download" type="text/javascript"></script></body></html>
